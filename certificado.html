@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificado de Trabajo Control de Aves</title>
+  <link rel="stylesheet" href="diseño.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+<div id="contenidoPDF">
+  <div class="contenedor">
+    <div class="header">
+      <img src="https://www.nublerapaz.cl/wp-content/uploads/2021/08/logo_002_grandever2-1-1024x1006-1.png" alt="Logo Ñuble Rapaz" class="logo" />
+      <div class="info">
+        <strong>RUT:</strong> 76.812.076-5<br>
+        <strong>Dirección:</strong> San Lucas #128, Chillán Viejo<br>
+        <strong>Tel:</strong> +56 9 9405-5938<br>
+        <strong>Correo:</strong> contacto@nublerapaz.cl<br>
+        <strong>Web:</strong> www.nublerapaz.cl<br>
+        <strong>Sucursales:</strong> Chillán-Concepción
+      </div>
+    </div>
+
+    <h1 style="text-align:center;">ÑUBLE RAPAZ</h1>
+    <h2 style="text-align:center;">Certificado de Trabajo Control de Aves</h2>
+
+    <!-- Tabla Datos Cliente -->
+    <table>
+      <tr><th colspan="4" class="section-title">Datos del cliente</th></tr>
+      <tr><td>Nombre del cliente:</td><td></td><td>RUT:</td><td></td></tr>
+      <tr><td>Contacto empresa:</td><td></td><td>Hora llegada:</td><td></td></tr>
+      <tr><td>Dirección:</td><td></td><td>Hora salida:</td><td></td></tr>
+      <tr><td>Técnico responsable:</td><td></td><td>Comuna:</td><td></td></tr>
+      <tr><td>Fecha:</td><td></td><td colspan="2"></td></tr>
+    </table>
+
+    <!-- Diagnóstico -->
+    <table id="tablaEspecies">
+      <thead>
+        <tr><th colspan="4" class="section-title">Diagnóstico</th></tr>
+        <tr>
+          <th style="width: 35%;">Especie observada</th>
+          <th style="width: 15%;">N°</th>
+          <th style="width: 25%;">Zona</th>
+          <th style="width: 25%;">Actividad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="fila-especie">
+          <td>
+            <label><input type="checkbox"> Paloma doméstica</label><br>
+            <label><input type="checkbox"> Gaviota Dominicana</label><br>
+            <label><input type="checkbox"> Gorrión Europeo</label><br>
+            <label><input type="checkbox"> Otra</label>
+          </td>
+          <td><input type="number" min="0"></td>
+          <td><textarea rows="4"></textarea></td>
+          <td>
+            <label><input type="checkbox"> Reproducción</label><br>
+            <label><input type="checkbox"> Pernocte</label><br>
+            <label><input type="checkbox"> Alimentación</label><br>
+            <label><input type="checkbox"> Posamiento</label>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button onclick="agregarFila()">Agregar especie</button>
+
+    <!-- Acciones de Control -->
+    <table>
+      <tr><th colspan="4" class="section-title">Acciones de Control</th></tr>
+      <tr>
+        <td><input type="checkbox"> Retiro de nidos</td>
+        <td><textarea rows="4"></textarea></td>
+        <td><input type="number" min="0"></select></td>
+      </tr>
+      <tr><td colspan="4" class="section-subtitle">N° de Aves Intimidadas</td></tr>
+      <tr>
+        <td><input type="checkbox"> Vuelos Disuasorios</td>
+        <td><textarea rows="4"></textarea></td>
+        <td colspan="2"><input type="number" min="0"></select></td>
+      </tr>
+      <tr><td colspan="4" class="section-subtitle">N° de Aves Capturadas</td></tr>
+      <tr>
+        <td><input type="checkbox"> Trampas de captura</td>
+        <td><textarea rows="4"></textarea></td>
+        <td colspan="2">
+          <input type="number" min="0"></select>
+          <input type="number" min="0"></select>
+          <input type="number" min="0"></select>
+          <input type="number" min="0"></select>
+        </td>
+      </tr>
+      <tr><td colspan="4" class="section-subtitle">N° de Aves capturadas</td></tr>
+      <tr>
+        <td><input type="checkbox"> Redes Niebla</td>
+        <td><textarea rows="4"></textarea></td>
+        <td colspan="2"><input type="number" min="0"></select></td>
+      </tr>
+      <tr><td colspan="4" class="section-subtitle">N° Cierres</td></tr>
+      <tr>
+        <td><input type="checkbox"> Cierre de accesos</td>
+        <td><textarea rows="4"></textarea></td>
+        <td colspan="2"><input type="number" min="0"></select></td>
+      </tr>
+      <tr><td colspan="4" class="section-subtitle">M lineales</td></tr>
+      <tr>
+        <td><input type="checkbox"> Púas Anti-posamiento</td>
+        <td><textarea rows="4"></textarea></td>
+        <td colspan="2"><input type="number" min="0"></select></td>
+      </tr>
+      <tr><td colspan="4" class="section-subtitle">M²</td></tr>
+      <tr>
+        <td><input type="checkbox"> Red Anti-aves</td>
+        <td><textarea rows="4"></textarea></td>
+        <td colspan="2"><input type="number" min="0"></select></td>
+      </tr>
+      <tr><td colspan="4" class="section-subtitle">Estado</td></tr>
+      <tr>
+        <td><input type="checkbox"> Ahuyentador Dinámico</td>
+        <td><textarea rows="4"></textarea></td>
+        <td colspan="2"></td>
+      </tr>
+      <tr><td colspan="4" class="section-subtitle">Especificaciones</td></tr>
+      <tr>
+        <td><input type="checkbox"> Otro</td>
+        <td></td>
+        <td colspan="2"><textarea rows="4"></textarea></td>
+      </tr>
+    </table>
+
+    <!-- Observaciones -->
+    <table>
+      <tr><th class="section-title">Observaciones</th></tr>
+      <tr><td><textarea rows="4"></textarea></td></tr>
+    </table>
+
+    <!-- Firmas -->
+ <table>
+  <tr>
+    <td style="text-align:center;">
+      Firma técnico:<br>
+      <canvas id="firmaTecnico" width="400" height="150"></canvas><br>
+      <button onclick="limpiarFirma('firmaTecnico')">Limpiar</button>
+    </td>
+    <td style="text-align:center;">
+      Firma cliente:<br>
+      <canvas id="firmaCliente" width="400" height="150"></canvas><br>
+      <button onclick="limpiarFirma('firmaCliente')">Limpiar</button>
+    </td>
+  </tr>
+</table>
+
+
+
+</div>
+
+<div class="btn-container">
+  <button id="generatePDF">📄 Guardar como PDF</button>
+</div>
+
+<script>
+  document.getElementById('generatePDF').addEventListener('click', function () {
+    const element = document.getElementById('contenidoPDF');
+    const boton = document.getElementById('generatePDF');
+    boton.style.display = 'none';
+
+    const opt = {
+      margin: 10,
+      filename: 'certificado_aves.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(() => {
+      boton.style.display = 'inline-block';
+    });
+  });
+
+  function limpiarFirma(idCanvas) {
+    const canvas = document.getElementById(idCanvas);
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function habilitarDibujo(canvasId) {
+    const canvas = document.getElementById(canvasId);
+    const ctx = canvas.getContext('2d');
+    let dibujando = false;
+
+    canvas.addEventListener('mousedown', e => {
+      dibujando = true;
+      ctx.beginPath();
+      ctx.moveTo(e.offsetX, e.offsetY);
+    });
+
+    canvas.addEventListener('mousemove', e => {
+      if (dibujando) {
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+      }
+    });
+
+    canvas.addEventListener('mouseup', () => dibujando = false);
+    canvas.addEventListener('mouseleave', () => dibujando = false);
+  }
+
+  habilitarDibujo('firmaTecnico');
+  habilitarDibujo('firmaCliente');
+</script>
+</body>
+</html>

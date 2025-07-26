@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ÑUBLERAPAZ</title>
+  <link rel="stylesheet" href="diseño.css">
+</head>
+<body>
+  
+
+
+<div class="login-box">
+  <img src="https://www.nublerapaz.cl/wp-content/uploads/2021/08/logo_002_grandever2-1-1024x1006-1.png" alt="Logo Ñuble Rapaz" class="logo">
+  <!-- Pantalla de ingreso -->
+  <div id="pantallaLogin" class="pantalla activa">
+    <h2>Ingreso</h2>
+    <input type="text" id="rut" placeholder="usuario" />
+    <input type="password" id="clave" placeholder="contraseña" />
+    <button onclick="verificarLogin()">Ingresar</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  // Usuario y contraseña definidos manualmente
+  const usuarioValido = "admin";
+  const claveValida = "1234";
+
+  function verificarLogin() {
+    const rut = document.getElementById("rut").value;
+    const clave = document.getElementById("clave").value;
+
+    if (rut === usuarioValido && clave === claveValida) {
+        // Redirigir a otra página después del login
+        window.location.href = "menu.html"; 
+      } else {
+        alert("Usuario o contraseña incorrectos");
+      }
+    }
+  </script>
+  
+
+
+</body>
+
+</html>
+
+<style>
+  body {
+    background: #f4f4f4;
+  }
+  .login-box {
+    background: #deeecb;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    max-width: 350px;
+    margin: 60px auto;
+    padding: 32px 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-box .logo {
+    max-width: 120px;
+    margin-bottom: 18px;
+  
+  }
+  #pantallaLogin {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #pantallaLogin input {
+    width: 90%;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+    font-size: 1em;
+  }
+  #pantallaLogin button {
+    width: 95%;
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: #2d7bba;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  #pantallaLogin button:hover {
+    background: #1a5a8a;
+  }
+
+     @keyframes rotar {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
